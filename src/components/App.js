@@ -1,13 +1,19 @@
 import React from "react";
-import Header from "./Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./Navbar";
 import PlantPage from "./PlantPage";
+import Header from "./Header";
 
 function App() {
   return (
-    <div className="app">
+    <Router>
       <Header />
-      <PlantPage />
-    </div>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={PlantPage} />
+        {/* Removed Users route since no Users.js exists */}
+      </Switch>
+    </Router>
   );
 }
 
